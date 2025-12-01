@@ -700,7 +700,7 @@ Due to the way \ambit\  calculates transition matrix elements, calculating one t
 with $J^{\pi}_1, J^{\pi}_2$ also allows us to calculate every other transition with the same 
 symmetry essentially extremely cheaply. Consequently, \ambit\  also prints these transitions in the 
 second section of the output regardless of how many transitions are requested, since we get these
-transitions essentially ``for free''.
+transitions essentially ``for free''. This can be suppressed by setting \hyperref[keyword:--no-extra-transitions]{{-}{-}no-extra-transitions}.
 
 \section{CI+MBPT tips}
 \label{sec:CI_tips}
@@ -2344,6 +2344,12 @@ orbitals $a$ and $b$.
 \texttt{{-}{-}rpa}
 \begin{adjustwidth}{1cm}{}
 Include random-phase approximation (RPA) corrections when calculating transition matrix elements. 
+\end{adjustwidth}
+
+
+\texttt{{-}{-}no-extra-transitions} \label{keyword:--no-extra-transitions}
+\begin{adjustwidth}{1cm}{}
+Suppress the calculation of additional transitions outside of the range specified by MatrixElements or AllBelow. This can reduce the output file size and computational time, which is only useful in calculations with an extremely large number of levels.
 \end{adjustwidth}
 
 Additionally, Yukawa and QED transitions take the same input arguments as their HF decorator equivalents (with the appropriate \hbox{\texttt{Transitions/\textless{Operator}\textgreater}} prefix). Options for HFI are presented in Sec.~\ref{sec:HFI}, while HFS1, HFS2, and FS operators accept the following options:

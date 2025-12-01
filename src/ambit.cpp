@@ -396,7 +396,8 @@ do { \
     user_input.set_prefix(prefix); \
     TRANSITION_CALCULATOR_TYPE calculon(user_input, atom); \
     calculon.CalculateAndPrint(); \
-    calculon.PrintAll(); \
+    if (!user_input.search("--no-extra-transitions")) \
+        calculon.PrintAll(); \
   } \
 } while(0)
 
@@ -436,7 +437,8 @@ void AmbitInterface::TransitionCalculations()
     for(auto& calc: calculators)
     {
         user_input.set_prefix(std::string("Transitions/") + calc->Name());
-        calc->PrintAll();
+        if (!user_input.search("--no-extra-transitions"))
+            calc->PrintAll();
     }
 
     // Other operators
